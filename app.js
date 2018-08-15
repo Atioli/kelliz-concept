@@ -1,8 +1,8 @@
 var express = require('express');
 var app = express();
 // security
-var csrf = require('csurf');
-var csrfProtect = csrf();
+// var csrf = require('csurf');
+// var csrfProtect = csrf();
 
 // set up handlebars view engine
 var handlebars = require('express3-handlebars')
@@ -35,13 +35,13 @@ app.get('/About', function(req, res){
     res.render('about.handlebars');
 });
 
-app.get('/account', function(req, res){
-    res.render('account');
+app.get('/account/signup', function(req, res){
+    res.render('signup.handlebars');
 });
 
-app.get('/account/signup', function(req, res, next){
-    res.render('account/signup', {csrfToken: req.csrfToken})
-});
+// app.get('/account/signup', function(req, res, next){
+//     res.render('account/signup', {csrfToken: req.csrfToken})
+// });
 
 //custom 404 page 
 app.use(function(req, res, next){
